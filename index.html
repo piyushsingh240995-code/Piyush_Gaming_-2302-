@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Piyush Gaming 2302 — Portfolio</title>
+  <meta name="description" content="Piyush Gaming 2302 — anime edits portfolio. Cinematic edits, testimonials, contact." />
+  <style>
+    /* ---------- fonts & base ---------- */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@500;700&display=swap');
+
+    :root{
+      --bg-1:#060607;
+      --bg-2:#0f1113;
+      --card:#0b0d0f;
+      --muted:#99a3ad;
+      --accent:#ff1e1e; /* red aura */
+      --glass: rgba(255,255,255,0.03);
+      --maxw:1100px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      color: #eaf0f8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      line-height:1.45;
+      scroll-behavior:smooth;
+    }
+
+    /* ---------- layout ---------- */
+    .wrap{max-width:var(--maxw);margin:28px auto;padding:18px}
+    header{
+      position:fixed;left:0;right:0;top:0;height:72px;display:flex;align-items:center;
+      justify-content:space-between;padding:12px 28px;background:rgba(6,6,7,0.52);backdrop-filter:blur(6px);
+      z-index:1200;border-bottom:1px solid rgba(255,30,30,0.07);
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-mark{
+      width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff7b7b);
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#071324;font-family:Orbitron;
+      box-shadow:0 10px 30px rgba(255,30,30,0.08);font-size:13px;
+    }
+    .site-title{font-weight:800;font-size:16px}
+    .site-sub{font-size:12px;color:var(--muted);margin-top:2px}
+
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:700}
+    nav a:hover{color:var(--accent);text-shadow:0 0 10px rgba(255,30,30,0.12)}
+
+    main{padding-top:92px}
+
+    /* ---------- hero ---------- */
+    .hero{
+      margin:18px 0 28px 0;padding:36px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow:0 12px 40px rgba(2,6,23,0.6);position:relative;overflow:hidden;
+      display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;
+    }
+    .soft-glow{
+      position:absolute;inset:-25% -10% auto -10%;height:60vh;pointer-events:none;z-index:0;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255,30,30,0.06), transparent 8%),
+        radial-gradient(circle at 90% 80%, rgba(255,120,120,0.04), transparent 10%);
+      mix-blend-mode:screen;animation:floaty 12s ease-in-out infinite;opacity:0.95;
+    }
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)}}
+
+    .hero-left{position:relative;z-index:2}
+    .hero h1{font-family:Orbitron, Inter, sans-serif;color:var(--accent);font-size:28px;text-shadow:0 0 16px rgba(255,30,30,0.14)}
+    .hero p{color:var(--muted);margin-top:12px;max-width:640px}
+    .cta{display:flex;gap:12px;margin-top:16px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;font-weight:800;
+      background:linear-gradient(90deg,var(--accent),#ff7b7b);color:#071324;text-decoration:none;
+      box-shadow:0 6px 22px rgba(255,30,30,0.12);transition:transform .22s, box-shadow .22s;
+    }
+    .btn:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(255,30,30,0.18)}
+
+    .info-card{background:var(--card);padding:16px;border-radius:12px;z-index:2;border:1px solid rgba(255,255,255,0.02)}
+    .info-card small{color:var(--muted)}
+
+    /* ---------- sections ---------- */
+    section{margin:22px 0}
+    .section-title{font-size:20px;color:var(--accent);font-weight:800;margin-bottom:10px;display:inline-block;
+      padding-bottom:6px;border-bottom:2px solid rgba(255,30,30,0.08)}
+    .muted{color:var(--muted)}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border-radius:12px;padding:10px;border:1px solid rgba(255,255,255,0.02);
+      transform:translateY(18px);opacity:0;transition:all .7s cubic-bezier(.2,.9,.2,1);
+      box-shadow:0 12px 30px rgba(2,6,23,0.6);
+    }
+    .card.show{transform:none;opacity:1}
+    .video-frame{width:100%;height:210px;border-radius:10px;border:2px solid rgba(255,30,30,0.12);overflow:hidden;box-shadow:0 10px 30px rgba(255,30,30,0.04)}
+    .card .meta{margin-top:10px;font-weight:700;color:var(--muted);font-size:14px}
+    .card:hover{box-shadow:0 20px 50px rgba(255,30,30,0.12);transform:translateY(-6px) scale(1.01)}
+
+    /* testimonials */
+    .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px}
+    .test-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.02);
+      box-shadow:0 12px 30px rgba(0,0,0,0.6);transform:translateY(18px);opacity:0;transition:all .6s ease;
+    }
+    .test-card.show{transform:none;opacity:1}
+    .test-card h4{color:var(--accent);margin-bottom:8px}
+    .test-card p{color:var(--muted);font-size:14px}
+
+    /* contact */
+    .contact-card{background:var(--card);padding:18px;border-radius:12px;display:inline-block;border:1px solid rgba(255,255,255,0.02)}
+    .socials{display:flex;gap:10px;margin-top:12px}
+    .socials a{padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.02);color:var(--muted);text-decoration:none;font-weight:700}
+    .socials a:hover{color:#fff;background:linear-gradient(90deg,var(--accent),#ff7b7b);box-shadow:0 8px 30px rgba(255,30,30,0.08)}
+
+    /* footer */
+    footer{margin-top:28px;text-align:center;color:var(--muted);padding-bottom:40px}
+
+    /* responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .test-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      .wrap{padding:12px}
+      header{padding:10px}
+      .gallery,.test-grid{grid-template-columns:1fr}
+      .video-frame{height:190px}
+    }
+
+    /* small pulsing on section titles (beat feel) */
+    .section-title.pulse{animation:beat 2.4s infinite}
+    @keyframes beat{
+      0%,100%{transform:scale(1);filter:drop-shadow(0 0 6px rgba(255,30,30,0.08))}
+      50%{transform:scale(1.02);filter:drop-shadow(0 0 20px rgba(255,30,30,0.14))}
+    }
+
+    /* small floating header glow text */
+    .floating-title{
+      display:inline-block;padding:6px 12px;border-radius:999px;background:linear-gradient(90deg, rgba(255,30,30,0.08), rgba(255,30,30,0.02));
+      color:var(--accent);box-shadow:0 8px 30px rgba(255,30,30,0.03);font-weight:800;
+      transform-origin:center;animation:floatText 6s ease-in-out infinite;
+    }
+    @keyframes floatText{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+
+    /* simple fade helper (for better performance) */
+    .invisible{opacity:0;transform:translateY(10px)}
+  </style>
+</head>
+<body>
+  <!-- particle canvas -->
+  <canvas id="particles" style="position:fixed;inset:0;z-index:0;pointer-events:none"></canvas>
+
+  <div class="wrap" style="position:relative;z-index:2">
+    <header>
+      <div class="brand">
+        <div class="logo-mark">PG2302</div>
+        <div>
+          <div class="site-title">Piyush Gaming 2302</div>
+          <div class="site-sub">Anime edits • Cinematic • Phonk energy</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#edits">Edits</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero" aria-label="home">
+        <div class="soft-glow" aria-hidden="true"></div>
+        <div class="hero-left">
+          <div class="floating-title">PIYUSH GAMING 2302</div>
+          <h1 style="margin-top:12px;font-size:34px;letter-spacing:0.6px">Where Anime Meets Cinematic Energy</h1>
+          <p style="margin-top:12px;color:var(--muted)">I craft high-energy anime edits and AMVs with tight beat-sync, cinematic color grading and polished cuts — made for clicks and emotions.</p>
+          <div class="cta" style="margin-top:18px">
+            <a class="btn" href="#edits">Watch Edits</a>
+            <a class="btn" href="#contact" style="background:transparent;color:var(--muted);box-shadow:none;border:1px solid rgba(255,255,255,0.03)">Book a Collab</a>
+          </div>
+        </div>
+
+        <aside class="info-card">
+          <strong style="display:block;margin-bottom:8px">Quick Info</strong>
+          <small class="muted">Turnaround: Shorts 48–72 hrs. Full edits 5–7 days. Revisions included.</small>
+          <div style="margin-top:12px">
+            <small class="muted">Links</small>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <a class="btn" href="https://youtube.com/@piyushgaming2302" target="_blank">YouTube</a>
+              <a class="btn" href="https://www.instagram.com/piyush_gaming_2302" target="_blank">Instagram</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-title pulse">About</div>
+        <div style="margin-top:12px" class="card">
+          <h3 style="margin-bottom:6px">I make cinematic anime edits</h3>
+          <p class="muted" style="margin-top:6px">From Demon Slayer cuts to original AMVs — I focus on hits, pacing and color. My edits are made to increase watch time and engagement while staying visually striking.</p>
+        </div>
+      </section>
+
+      <!-- EDITS -->
+      <section id="edits" style="margin-top:6px">
+        <div class="section-title pulse">Edits</div>
+        <div class="muted" style="margin-top:6px">Click any card to watch — all embedded from YouTube</div>
+
+        <div class="gallery" id="gallery">
+          <!-- card 1 -->
+          <div class="card video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/TlXGmrBaUBk" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:0"></iframe>
+            </div>
+            <div class="meta">Long Edit — Cinematic AMV</div>
+          </div>
+
+          <!-- card 2 -->
+          <div class="card video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/s_nPqoU4dGs" allowfullscreen style="width:100%;height:100%;border:0"></iframe>
+            </div>
+            <div class="meta">Short — High-impact clip</div>
+          </div>
+
+          <!-- card 3 -->
+          <div class="card video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/0U0NN_CrZSY" allowfullscreen style="width:100%;height:100%;border:0"></iframe>
+            </div>
+            <div class="meta">Short — Quick cut</div>
+          </div>
+
+          <!-- card 4 -->
+          <div class="card video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/NbhBpj6xBt8" allowfullscreen style="width:100%;height:100%;border:0"></iframe>
+            </div>
+            <div class="meta">Short — Cinematic punch</div>
+          </div>
+
+          <!-- card 5 -->
+          <div class="card video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/IMqbXQ8E33s" allowfullscreen style="width:100%;height:100%;border:0"></iframe>
+            </div>
+            <div class="meta">Short — Emotional cut</div>
+          </div>
+
+          <!-- card 6 -->
+          <div class="card video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/vfJH1MFOrIY" allowfullscreen style="width:100%;height:100%;border:0"></iframe>
+            </div>
+            <div class="meta">Short — Viral-ready clip</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials" style="margin-top:18px">
+        <div class="section-title pulse">Testimonials</div>
+        <div class="muted" style="margin-top:6px">Real friends & clients — raw reactions</div>
+
+        <div class="test-grid">
+          <div class="test-card">
+            <h4>Rohan</h4>
+            <p>"Piyush’s edits are next-level — smooth transitions, crazy energy, and pure anime feels!"</p>
+          </div>
+
+          <div class="test-card">
+            <h4>Aryan</h4>
+            <p>"His creativity stands out. You can feel the emotion in every frame 🔥."</p>
+          </div>
+
+          <div class="test-card">
+            <h4>Radhika</h4>
+            <p>"He’s not just an editor, he’s an artist. Every edit hits straight to the heart 💫."</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" style="margin-top:18px">
+        <div class="section-title pulse">Contact</div>
+
+        <div style="margin-top:12px">
+          <div class="contact-card">
+            <div class="contact-card-inner contact-card" style="padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));display:inline-block">
+              <div class="muted">For commissions, brand collabs, or quick questions:</div>
+              <a href="mailto:piyushsingh240995@gmail.com" class="btn" style="margin-top:12px;display:inline-block">📧 Email — piyushsingh240995@gmail.com</a>
+
+              <div class="socials" style="margin-top:12px">
+                <a href="https://youtube.com/@piyushgaming2302" target="_blank">YouTube</a>
+                <a href="https://www.instagram.com/piyush_gaming_2302" target="_blank">Instagram</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> Piyush Gaming 2302 — Made with hustle.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---------- particles (light, anime sparkles) ---------- */
+    (function(){
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let W = canvas.width = innerWidth;
+      let H = canvas.height = innerHeight;
+      const particles = [];
+      const PARTICLE_COUNT = Math.round((W * H) / 80000); // responsive density
+
+      function rand(min,max){ return Math.random()*(max-min)+min; }
+      function create(){
+        for(let i=0;i<PARTICLE_COUNT;i++){
+          particles.push({
+            x: rand(0,W),
+            y: rand(0,H),
+            r: rand(0.6,2.2),
+            a: rand(0.04,0.18),
+            dx: rand(-0.15,0.15),
+            dy: rand(-0.05,0.05),
+            hue: rand(0,360)
+          });
+        }
+      }
+      function resize(){ W=canvas.width=innerWidth; H=canvas.height=innerHeight; particles.length=0; create(); }
+      function draw(){
+        ctx.clearRect(0,0,W,H);
+        for(const p of particles){
+          p.x += p.dx;
+          p.y += p.dy;
+          if(p.x < -10) p.x = W + 10;
+          if(p.x > W + 10) p.x = -10;
+          if(p.y < -10) p.y = H + 10;
+          if(p.y > H + 10) p.y = -10;
+          ctx.beginPath();
+          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r*8);
+          // subtle red+pink glows
+          g.addColorStop(0, `rgba(255,30,30,${p.a})`);
+          g.addColorStop(0.4, `rgba(255,80,80,${p.a*0.6})`);
+          g.addColorStop(1, 'rgba(255,80,80,0)');
+          ctx.fillStyle = g;
+          ctx.fillRect(p.x - p.r*8, p.y - p.r*8, p.r*16, p.r*16);
+        }
+        requestAnimationFrame(draw);
+      }
+      window.addEventListener('resize', resize);
+      create(); draw();
+    })();
+
+    /* ---------- reveal on scroll for cards & tests ---------- */
+    (function(){
+      const reveal = (els, opts = {}) => {
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){
+              entry.target.classList.add('show');
+              io.unobserve(entry.target);
+            }
+          });
+        }, opts);
+        els.forEach(el => io.observe(el));
+      };
+
+      // observe gallery cards & test cards & any .video-card/.test-card/.card/.hero-left etc.
+      document.addEventListener('DOMContentLoaded', () => {
+        const galleryCards = document.querySelectorAll('.card, .test-card, .hero-left, .floating-title');
+        reveal(Array.from(galleryCards), {threshold:0.12});
+      });
+    })();
+
+    /* ---------- small stagger reveal for videos (nice rhythm) ---------- */
+    (function(){
+      const cards = document.querySelectorAll('.video-card');
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach((entry, idx)=>{
+          if(entry.isIntersecting){
+            // stagger depending on position
+            const delay = (Array.from(cards).indexOf(entry.target) % 6) * 120;
+            setTimeout(()=> entry.target.classList.add('show'), delay);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.12});
+      cards.forEach(c => obs.observe(c));
+    })();
+
+    /* ---------- small keyboard shortcuts (H A E T C) ---------- */
+    document.addEventListener('keydown', e => {
+      const k = e.key.toLowerCase();
+      if(k === 'h') location.hash = '#home';
+      if(k === 'a') location.hash = '#about';
+      if(k === 'e') location.hash = '#edits';
+      if(k === 't') location.hash = '#testimonials';
+      if(k === 'c') location.hash = '#contact';
+    });
+  </script>
+</body>
+</html>
